@@ -1,0 +1,293 @@
+// Khai báo kích thước tương ứng với màn hình thiết bị
+$XS: 575px;
+$SM: 800px;
+$MD: 1024px;
+$XL: 1170px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas ==XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    }
+
+    @else if $canvas ==SM {
+        @media only screen and (min-width: $SM) {
+            @content;
+        }
+    }
+
+    @else if $canvas ==MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    }
+
+    @else if $canvas ==XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    }
+}
+
+.products {
+    width: 100%;
+
+    .ant-carousel .slick-slide {
+        overflow: hidden;
+        height: 160px;
+        background: #364d79;
+    }
+
+    .ant-carousel .slick-slide div {
+        color: #fff;
+    }
+
+    // padding: 0 10px;
+    * {
+        margin: 0;
+        font-family: "Jost", sans-serif;
+    }
+
+    .item {
+        margin: 0 10px;
+        padding: 12px 0;
+
+
+
+        .image {
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 10px;
+
+            img {
+                transition: 0.3s;
+            }
+
+            .img1 {
+                transition: 1.5s;
+            }
+
+            .img2 {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                object-fit: contain;
+                // opacity: 0;
+                z-index: -1;
+                transition: 0.3s;
+                // transition: opacity .3s;
+            }
+
+            .tags {
+                position: absolute;
+
+                z-index: 3;
+                top: 0.75rem;
+                left: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                span {
+                    @include Responsive(XS) {
+                        padding: 2px 7px;
+                        padding-bottom: 3px;
+                        font-size: 10px;
+
+                    }
+
+                    display: inline-block;
+                    padding: 1px 4px;
+                    font-size: 8px;
+                    text-transform: uppercase;
+                    background-color: #252525;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    margin-bottom: 5px;
+                    color: #f5f4ee;
+
+                }
+
+                .bg {
+                    background-color: #e49e6c;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                .img1 {
+                    transform: scale(1.1);
+
+                    // visibility: hidden;
+                    // display: none;
+
+
+                }
+
+                .img2 {
+                    opacity: 1;
+                    z-index: 2;
+
+                    transform: scale(1.05);
+
+                    // &:hover {
+
+
+                    // }
+                }
+
+
+                .desktop_icon {
+                    transform: translateX(0);
+                }
+            }
+
+            .group_icon {
+                padding: 10px;
+
+                .icon {
+                    width: 30px;
+                    height: 30px;
+                    position: relative;
+                    background-color: #f5f4ee;
+                    border-radius: 50%;
+                    display: inline-block;
+
+                    &:hover {
+                        background-color: #252525;
+                        cursor: pointer;
+
+                        span {
+                            color: #f5f4ee;
+                        }
+                    }
+
+                    span {
+                        font-size: larger;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        // display: inline-block;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
+
+
+            .desktop_icon {
+                display: none;
+
+                @include Responsive(MD) {
+                    display: block;
+
+                }
+
+                position: absolute;
+                top: 10px;
+                right: 4px;
+                transform: translateX(50px);
+                width: 36px;
+                padding: 0;
+                margin: 10px;
+                transition: 0.3s;
+                z-index: 3;
+
+                .icon {
+                    margin: 4px 0;
+                }
+            }
+        }
+
+        .mobile_icon {
+            padding-top: 16px;
+            padding: 0;
+            // padding: 0 10px;
+
+            @include Responsive(MD) {
+                display: none;
+
+            }
+
+            .icon {
+                width: 27px;
+                height: 27px;
+                position: relative;
+                background-color: #f5f4ee;
+                border-radius: 50%;
+                display: inline-block;
+                margin: 0 2px;
+
+                @include Responsive(SM) {
+                    width: 30px;
+                    height: 30px;
+
+                    span {
+                        font-size: medium;
+                    }
+                }
+
+                &:hover {
+                    background-color: #252525;
+                    cursor: pointer;
+
+                    span {
+                        color: #f5f4ee;
+                    }
+                }
+
+                span {
+                    font-size: larger;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    // display: inline-block;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+        }
+
+        @include Responsive(SM) {
+            h4 {
+                padding: 10px 0 !important;
+                font-size: 16px;
+            }
+        }
+
+        h4 {
+
+            padding: 6px 0;
+            color: #252525;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #7a7a7a !important;
+
+            span {
+                color: #7a7a7a;
+                font-size: 16px;
+            }
+        }
+
+        .star>span {
+            font-size: 10px;
+            color: #f7ba01;
+        }
+
+
+
+
+
+    }
+}

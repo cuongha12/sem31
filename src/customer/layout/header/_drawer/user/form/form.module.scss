@@ -1,0 +1,136 @@
+.form {
+    padding: 20px 10px;
+
+    * {
+        font-family: 'Jost', sans-serif;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        .item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            span {
+                font-size: 18px;
+                font-weight: 500;
+
+                &:first-child {
+                    padding-right: 8px;
+
+                }
+
+            }
+
+        }
+
+
+    }
+
+    .social {
+        padding-top: 20px;
+
+        .item {
+            color: #fff;
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+                opacity: 0.9;
+            }
+
+            &:first-child {
+                background-color: #1877F2;
+            }
+
+            &:last-child {
+                background-color: #dc4e41;
+            }
+
+            span {
+                &:first-child {
+                    font-size: 25px;
+                }
+
+                &:last-child {
+                    flex: 1 1 auto;
+                    text-align: center;
+
+                    b {
+                        text-transform: capitalize;
+                        letter-spacing: 1.2px;
+                        font-size: 15px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .carousel_item {
+        width: 100%;
+        padding: 0 2px;
+
+        label {
+            color: #252525;
+            padding: 16px 0 6px 0;
+        }
+
+        ._input {
+            padding: 16px 10px;
+            border-radius: 0;
+            outline: none;
+            box-shadow: none;
+            border-color: #d9d9d9;
+
+            &:focus {
+                border-color: #000;
+            }
+
+            &:hover {
+                border-color: #000;
+            }
+
+            input {
+                outline: none;
+
+                &:focus {
+                    box-shadow: none;
+                    border-color: #000;
+                }
+            }
+
+        }
+
+        .submit {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            background-color: #000;
+            color: #fff;
+            transition: 0.3s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        p {
+            cursor: pointer;
+            padding: 16px 0;
+            margin: 0;
+            color: #7d7d7d;
+        }
+
+
+    }
+
+}

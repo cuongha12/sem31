@@ -1,0 +1,68 @@
+.btn_xx {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    position: relative;
+
+    @mixin line {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: #000;
+        top: 50%;
+        left: 50%;
+    }
+
+    &::before {
+        @include line;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+        @include line;
+        transform: translate(-50%, -50%) rotate(-45deg);
+
+    }
+
+    &:hover {
+
+        &::before {
+            animation-name: _rotate1;
+            animation-duration: 0.3s;
+        }
+
+        &::after {
+            animation-name: _rotate2;
+            animation-duration: 0.3s;
+        }
+
+        @keyframes _rotate1 {
+            0% {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+
+        @keyframes _rotate2 {
+            0% {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(-10deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+    }
+}
